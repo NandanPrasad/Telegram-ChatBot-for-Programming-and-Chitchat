@@ -1,4 +1,4 @@
-<h1 align= "center"> StackOverflow Bot Project </h1>
+<h1 align= "center"> StackOverflow Bot Project (Ongoing) </h1>
 An NLP project focused on achieving three tasks - 
 
   * Predict most appropriate tags for a question on StackOverflow.
