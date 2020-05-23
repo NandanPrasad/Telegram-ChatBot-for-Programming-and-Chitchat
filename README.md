@@ -1,5 +1,5 @@
 <h1 align= "center"> StackOverflow Bot Project </h1>
-An NLP project focused on doing three things - 
+An NLP project focused on achieving three tasks - 
 
   * Predict most appropriate tags for a question on StackOverflow.
   * Find duplicate questions on StackOverflow.
