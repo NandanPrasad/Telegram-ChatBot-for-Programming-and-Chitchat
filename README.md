@@ -5,4 +5,4 @@ An NLP project focused on achieving three tasks -
   * Find duplicate questions on StackOverflow.
   * A conversational bot on Telegram hosted on AWS that can answer both chit-chat questions and programming questions.
 
-This project was inspired by the lectures and programming assignments in the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.
+This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.
