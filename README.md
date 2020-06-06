@@ -17,5 +17,6 @@ We will need to complete four tasks relating to four objects that will be used b
 - `tag_classifier.pkl` — A programming language classification model.
   - Classifies the programming related question based on the programming language.
 - `tfidf_vectorizer.pkl` — A vectorizer used during training.
+  - StarSpace embeddings trained on StackOverflow posts.
 - `thread_embeddings_by_tags` — A folder with thread embeddings, arranged by tags.
   - Ranking the question with embedding vector representation to calculate the simiarity between the question and existing threads on StackOverflow.
