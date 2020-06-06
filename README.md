@@ -8,15 +8,19 @@ This project builds on what I learnt through the lectures and programming assign
 The aim is to develop a Telegram chatbot hosted on Amazon Web Services that can - 
 - Answer programming related questions using StackOverflow dataset.
 - Chit-chat and simulate dialogue for non-programming related questions using a pre-trained neural network engine available from [ChatterBot](https://github.com/gunthercox/ChatterBot).
+  
+  
+1. Data Preparation: Pre-processing text and TF-IDF transformations.  
+2. Intent Recognition: Binary classification of TF-IDF representation of texts with labels `dialogue` for general questions and `stackoverflow` for programming-related questions.  
+3. Programming Language Classification: Predict which programming language is being referred to speeds up question search by a factor of the number of languages.  
+4. Ranking Questions using Embeddings:  
+  a. Train StarSpace embeddings on Stack Overflow posts in *supervised mode* for detection of duplicate questions.  
+  b. Create a database with pre-computed representations arranged by non-overlapping programming language tags so that the search can be performed within one tag. This makes our bot more efficient (costly to compute representations for all possible answers when the bot is in *online mode*) and allows not to store the whole database in RAM.   
+  c. Calculate similarity between the question and existing threads on StackOverflow using vector representations.  
 
 
-We will need to complete four tasks relating to four objects that will be used by the running bot - 
+We require four objects that will be used by the running bot - 
 - `intent_recognizer.pkl` — An intent recognition model.
-  - Preprocessing of text and implementing TF-IDF transformation.
-  - Binary classification of intent of user question using TF-IDF representation.
 - `tag_classifier.pkl` — A programming language classification model.
-  - Classifies the programming related question based on the programming language.
 - `tfidf_vectorizer.pkl` — A vectorizer used during training.
-  - StarSpace embeddings trained on StackOverflow posts.
 - `thread_embeddings_by_tags` — A folder with thread embeddings, arranged by tags.
-  - Ranking the question with embedding vector representation to calculate the simiarity between the question and existing threads on StackOverflow.
