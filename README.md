@@ -1,4 +1,5 @@
-<h1 align= "center"> StackOverflow Bot Project (Ongoing) </h1>
+<h1 align= "center"> Telegram Conversational Bot <br>
+(Programming Questions + Chit-Chat) </h1>
 
 This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.
 
@@ -24,3 +25,9 @@ We require four objects that will be used by the running bot -
 - `tag_classifier.pkl` — A programming language classification model.
 - `tfidf_vectorizer.pkl` — A vectorizer used during training.
 - `thread_embeddings_by_tags` — A folder with thread embeddings, arranged by tags.
+
+---
+
+<h3 align= "center"> 1. DATA PREPARATION </h3>
+
+
