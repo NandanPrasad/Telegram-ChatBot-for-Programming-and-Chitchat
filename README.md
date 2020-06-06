@@ -1,9 +1,7 @@
-<h1 align= "center"> Telegram Conversational Bot <br>
-(Programming Questions + Chit-Chat) </h1>
+<h1 align= "center"> Telegram Conversational Bot [In Progress] <br>
+Programming Questions + Chit-Chat </h1>
 
-This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.
-
----
+This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.  
 
 
 The aim is to develop a Telegram chatbot hosted on Amazon Web Services that can -   
@@ -27,7 +25,23 @@ We require four objects that will be used by the running bot -
 - `thread_embeddings_by_tags` — A folder with thread embeddings, arranged by tags.
 
 ---
+<h3 align= "center"> 1. DATA PREPARATION </h3>  
 
-<h3 align= "center"> 1. DATA PREPARATION </h3>
+---  
+
+---
+<h3 align= "center"> 2. INTENT RECOGNITION </h3>  
+
+---  
+
+---
+<h3 align= "center"> 3. PROGRAMMING LANGUAGE CLASSIFICATION </h3>  
+
+---  
+
+---
+<h3 align= "center"> 4. RANKING QUESTIONS USING EMBEDDINGS </h3>  
+
+---  
 
 
