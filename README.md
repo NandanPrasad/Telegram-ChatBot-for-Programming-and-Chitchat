@@ -1,5 +1,6 @@
 <h1 align= "center"> StackOverflow Bot Project (Ongoing) </h1>
-*This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.*
+<i>This project builds on what I learnt through the lectures and programming assignments of the [Natural Language Processing](https://www.coursera.org/learn/language-processing) course on Coursera by National Research University School of Economics.</i>  
+
 
 
 The aim is to develop a Telegram chatbot hosted on Amazon Web Services that can - 
