@@ -5,15 +5,15 @@ This project builds on what I learnt through the lectures and programming assign
 ---
 
 
-The aim is to develop a Telegram chatbot hosted on Amazon Web Services that can - 
-- Answer programming related questions using StackOverflow dataset.
-- Chit-chat and simulate dialogue for non-programming related questions using a pre-trained neural network engine available from [ChatterBot](https://github.com/gunthercox/ChatterBot).
+The aim is to develop a Telegram chatbot hosted on Amazon Web Services that can -   
+1. Answer programming related questions using StackOverflow dataset.
+2. Chit-chat and simulate dialogue for non-programming related questions using a pre-trained neural network engine available from [ChatterBot](https://github.com/gunthercox/ChatterBot).
   
-  
-1. Data Preparation: Pre-processing text and TF-IDF transformations.  
-2. Intent Recognition: Binary classification of TF-IDF representation of texts with labels `dialogue` for general questions and `stackoverflow` for programming-related questions.  
-3. Programming Language Classification: Predict which programming language is being referred to speeds up question search by a factor of the number of languages.  
-4. Ranking Questions using Embeddings:  
+The project can be broken down into four simple tasks -   
+1. **Data Preparation**: Pre-processing text and TF-IDF transformations.  
+2. **Intent Recognition**: Binary classification of TF-IDF representation of texts with labels `dialogue` for general questions and `stackoverflow` for programming-related questions.  
+3. **Programming Language Classification**: Predict which programming language is being referred to speeds up question search by a factor of the number of languages.  
+4. **Ranking Questions using Embeddings**:  
   a. Train StarSpace embeddings on Stack Overflow posts in *supervised mode* for detection of duplicate questions.  
   b. Create a database with pre-computed representations arranged by non-overlapping programming language tags so that the search can be performed within one tag. This makes our bot more efficient (costly to compute representations for all possible answers when the bot is in *online mode*) and allows not to store the whole database in RAM.   
   c. Calculate similarity between the question and existing threads on StackOverflow using vector representations.  
