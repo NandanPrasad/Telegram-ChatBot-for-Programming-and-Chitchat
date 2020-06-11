@@ -29,6 +29,14 @@ We require four objects that will be used by the running bot -
 
 ---  
 
+**Bag of Words Representation** 
+
+![ROC of Bag of Words Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download%20(1).png)
+
+**TF-IDF Representation**
+
+![ROC of TF-IDF Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download.png)
+
 ---
 <h3 align= "center"> 2. INTENT RECOGNITION </h3>  
 
