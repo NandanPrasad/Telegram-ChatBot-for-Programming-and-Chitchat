@@ -30,16 +30,30 @@ We require four objects that will be used by the running bot -
 ---  
 
 
-<h4 align= "center"> Bag of Words Representation </h4>
+<h4 align= "center"> I. Data Cleaning </h4>  
+One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using spaces, there will be many "weird" tokens like 3.5?, "Flip, etc. To prevent this, we prepare the data first.
+
+<h4 align= "center"> II. Transforming text to vector </h4>   
+Machine Learning algorithms work with numeric data. There are many ways to transform text data to numeric vectors. We will test two ways and choose the better performing method for our application -  
   
+**i. Bag of Words Representation**  
+One of the well-known approaches is a bag-of-words representation. The steps followed to create this transformation are -
+  1. Find N most popular words in train corpus and numerate them to obtain a dictionary of the 5000 most popular words.
+  2. For each title in the corpora, create an N-dimensional zero vector.
+  3. For each text in the corpora, iterate over words present in the dictionary and increment the corresponding coordinate.
 
-<img align="center" src="https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download%20(1).png">
+We transform the data to sparse representation to store the useful information efficiently. There are many types of such representations, however, sklearn algorithms only work with csr matrix.  
+
+![ROC of Bag of Words Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download%20(1).png)  
 
 
-<h4 align= "center"> TF-IDF Representation </h4>
+**ii. TF-IDF Representation**  
+The second approach extends the bag-of-words framework by taking into account total frequencies of words in the corpora. It helps to penalize too frequent words like "a", "and", "is" etc. so as to provide better feature space.
+
+We use the [TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) class from scikit-learn to train a vectorizer that penalizes tokens that occur in less than 5% and in more than 90% of the titles. We also use bigrams along with unigrams in the vocabulary.
 
 
-![ROC of TF-IDF Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download.png)
+![ROC of TF-IDF Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download.png)  
 
 
 ---
