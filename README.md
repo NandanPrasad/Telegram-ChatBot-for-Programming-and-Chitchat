@@ -34,15 +34,19 @@ We require four objects that will be used by the running bot -
 One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using spaces, there will be many "weird" tokens like 3.5?, "Flip, etc. To prevent this, we prepare the data first.
 
 <h4 align= "center"> II. Transforming text to vector </h4>   
-Machine Learning algorithms work with numeric data. There are many ways to transform text data to numeric vectors. We will test two ways and choose the better performing method for our application -  
-  
-**i. Bag of Words Representation**  
+
+
+Machine Learning algorithms work with numeric data. There are many ways to transform text data to numeric vectors. We will test two ways and choose the better performing method for our application.  
+
+
+
+  **i. Bag of Words Representation**  
 One of the well-known approaches is a bag-of-words representation. The steps followed to create this transformation are -
   1. Find N most popular words in train corpus and numerate them to obtain a dictionary of the 5000 most popular words.
   2. For each title in the corpora, create an N-dimensional zero vector.
   3. For each text in the corpora, iterate over words present in the dictionary and increment the corresponding coordinate.
 
-We transform the data to sparse representation to store the useful information efficiently. There are many types of such representations, however, sklearn algorithms only work with csr matrix.  
+We transform the data to sparse representation to store the useful information efficiently. There are many types of such representations, but since sklearn algorithms only work with csr matrix, we will use that.  
 
 ![ROC of Bag of Words Representation](https://github.com/NandanPrasad/Telegram-ChatBot-for-Programming-and-Chitchat/blob/master/download%20(1).png)  
 
