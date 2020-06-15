@@ -69,6 +69,12 @@ We use the [TfidfVectorizer](https://scikit-learn.org/stable/modules/generated/s
 
 ---  
 
+To detect intent of users questions we will need two text collections:
+
+- `tagged_posts.tsv` — StackOverflow posts, tagged with one programming language (positive samples).
+- `dialogues.tsv` — dialogue phrases from movie subtitles (negative samples).
+
+
 ---
 <h3 align= "center"> 3. PROGRAMMING LANGUAGE CLASSIFICATION </h3>  
 
