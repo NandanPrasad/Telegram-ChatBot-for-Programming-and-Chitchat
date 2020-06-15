@@ -33,7 +33,7 @@ We require four objects that will be used by the running bot -
 <h4 align= "center"> I. Data Cleaning </h4>  
 One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using spaces, there will be many "weird" tokens like 3.5?, "Flip, etc. To prevent this, we prepare the data first.
 
-<h4 align= "center"> II. Transforming text to vector </h4>   
+<h4 align= "center"> II. Transforming Text to Vector </h4>   
 
 
 Machine Learning algorithms work with numeric data. There are many ways to transform text data to numeric vectors. We will test two ways and choose the better performing method for our application.  
