@@ -31,12 +31,11 @@ We require four objects that will be used by the running bot -
 
 
 <h4 align= "center"> I. Data Cleaning </h4>  
-One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using whitespaces, there will be many "weird" tokens like `3.5?`, `"Flip`, etc. To prevent this, we prepare the data first.
-
+One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using whitespaces, there will be many "weird" tokens like 3.5? and "Flip  etc. To prevent this, we prepare the data first.
 
 
 1. Make all lowercase.
-2. Replace `[/(){}\[\]\|@,;]` symbols with whitespace.
+2. Replace `[/(){}[]|@,;]` symbols with whitespace.
 3. Delete other bad symbols.
 4. Delete useless words that are in the stopwords set from [NLTK](nltk.org) platform.
 
