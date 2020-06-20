@@ -32,10 +32,13 @@ We require four objects that will be used by the running bot -
 
 <h4 align= "center"> I. Data Cleaning </h4>  
 One of the difficulties of working with natural data is that it's unstructured. If it is used without pre-processing and tokens are extracted simply by splitting using whitespaces, there will be many "weird" tokens like `3.5?`, `"Flip`, etc. To prevent this, we prepare the data first.
-  1. Make all lowercase.
-  2. Replace `[/(){}\[\]\|@,;]` symbols with whitespace.
-  3. Delete other bad symbols.
-  4. Delete useless words that are in the stopwords set from [NLTK](nltk.org) platform.
+
+
+
+1. Make all lowercase.
+2. Replace `[/(){}\[\]\|@,;]` symbols with whitespace.
+3. Delete other bad symbols.
+4. Delete useless words that are in the stopwords set from [NLTK](nltk.org) platform.
 
 <h4 align= "center"> II. Transforming Text to Vector </h4>   
 
@@ -105,20 +108,29 @@ We have word-based embeddings, but we need to create a representation for the wh
 
 If we use good embeddings, the cosine similarity between the duplicate sentences should be less than for the random ones. Overall, for each pair of duplicate sentences we generate R random negative examples and find out the position of the correct duplicate.
 
-The goal of the model is to rank all questions as positive and negative such that the correct one is in the first place. However, it is unnatural to count on the best candidate always being in the first place. So let us consider the place of the best candidate in the sorted list of candidates and formulate a metric based on it. We can fix some K — a reasonalble number of top-ranked elements and N — a number of queries (size of the sample).  
+The goal of the model is to rank all questions as positive and negative such that the correct one is in the first place. However, it is unnatural to count on the best candidate always being in the first place. So let us consider the place of the best candidate in the sorted list of candidates and formulate a metric based on it. We can fix some K — a reasonalble number of top-ranked elements and N — a number of queries (size of the sample). 
 
 **i. Hits@K Metric (Number of correct Hits at K)**  
 
-The first simple metric will be a number of correct hits for some K:$$ \text{Hits@K} = \frac{1}{N}\sum_{i=1}^N \, [dup_i \in topK(q_i)]$$
+Number of correct hits for some K:  
 
-where $q_i$ is the i-th query, $dup_i$ is its duplicate, $topK(q_i)$ is the top K elements of the ranked sentences provided by our model and the operation $[dup_i \in topK(q_i)]$ equals 1 if the condition is true and 0 otherwise (more details about this operation could be found here).  
+$$ \text{Hits@K} = \frac{1}{N}\sum_{i=1}^N \, [dup_i \in topK(q_i)]$$
+
+$q_i$ is the i-th query,   
+$dup_i$ is its duplicate,  
+$topK(q_i)$ is the top K elements of the ranked sentences provided by our model,   
+$[dup_i \in topK(q_i)]$ equals 1 if condition is true and 0 otherwise.
 
 **ii. Simplified DCG@K Metric (Discounted Cumulative Gain at K)**  
+According to this metric, the model gets a higher reward for a higher position of the correct answer. If the answer does not appear in topK at all, the reward is zero.
 
-The second one is a simplified DCG metric:
 
-$$ \text{DCG@K} = \frac{1}{N} \sum_{i=1}^N\frac{1}{\log_2(1+rank_{dup_i})}\cdot[rank_{dup_i} \le K] $$
-where $rank_{dup_i}$ is a position of the duplicate in the sorted list of the nearest sentences for the query $q_i$. According to this metric, the model gets a higher reward for a higher position of the correct answer. If the answer does not appear in topK at all, the reward is zero.
+$$ \text{DCG@K} = \frac{1}{N} \sum_{i=1}^N\frac{1}{\log_2(1+rank_{dup_i})}\cdot[rank_{dup_i} \le K] $$ 
+
+$rank_{dup_i}$ is a position of the duplicate in the sorted list of the nearest sentences for the query $q_i$. 
+
+
+
 
 Each function has two arguments: dup_ranks and k. dup_ranks is a list which contains values of ranks of duplicates.
 
@@ -128,7 +140,7 @@ Each function has two arguments: dup_ranks and k. dup_ranks is a list which cont
 We use cosine distance to rank candidate questions. Function `rank_candidates` returns a sorted list of pairs (initial position in candidates list, candidate). Index of some pair corresponds to its rank (the first is the best).
 
 
-<h4 align= "center"> IV. Solution 2: StarSpace Embeddings </h4>  
+<h4 align= "center"> V. Solution 2: StarSpace Embeddings </h4>  
 
 StarSpace can be trained specifically for some tasks. In contrast to word2vec model, which tries to train similar embeddings for words in similar contexts, StarSpace uses embeddings for the whole sentence as a sum of embeddings of words and phrases. Despite the fact that in both cases we get word embeddings as a result of the training, StarSpace embeddings are trained using some supervised data and thus they can better suit the task.
 
